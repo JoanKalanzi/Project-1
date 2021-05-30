@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  color:black;
+}
+.controls-wrapper {
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+
+.grid-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  align-items: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  height: 600px;
+  width: 600px;
+}
+
+.grid div {
+  border: 1px solid lightgrey;
+  flex-grow: 1;
+  height: 9%;
+  width: 9%;
+}
+
+.grid div.frog {
+  content: url('https://cutewallpaper.org/21/animated-frog-picture/Animated-frog-images-clipart-images-gallery-for-free-.png');
+  cursor: pointer;
+}
+.grid div.lilyPad {
+  background-image: url('https://www.netclipart.com/pp/m/57-571248_lily-pad-clipart-lily-pad-clipart-png.png');
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+.grid div.carLeft{
+  background-image:url('https://lh3.googleusercontent.com/proxy/Z0X8qFfbtweadPlOBNKkhY_H_0ncMFBwzEont6qPpyr9bxZCjSJWMTlBBPpdz-vkie1gH3ub9XPw5Ytv45wqNRtfQN9GvdneDkxEWNvjTTcVaNZolqaBENQa-X1AxmKVUy6sA-y-lihe');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
