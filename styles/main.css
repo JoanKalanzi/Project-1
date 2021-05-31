@@ -51,8 +51,13 @@ body {
   background-size: cover; 
 }
 .grid div.carLeft{
-  background-image:url('https://lh3.googleusercontent.com/proxy/Z0X8qFfbtweadPlOBNKkhY_H_0ncMFBwzEont6qPpyr9bxZCjSJWMTlBBPpdz-vkie1gH3ub9XPw5Ytv45wqNRtfQN9GvdneDkxEWNvjTTcVaNZolqaBENQa-X1AxmKVUy6sA-y-lihe');
+  content:url('https://lh3.googleusercontent.com/proxy/Z0X8qFfbtweadPlOBNKkhY_H_0ncMFBwzEont6qPpyr9bxZCjSJWMTlBBPpdz-vkie1gH3ub9XPw5Ytv45wqNRtfQN9GvdneDkxEWNvjTTcVaNZolqaBENQa-X1AxmKVUy6sA-y-lihe');
   background-repeat: no-repeat;
   background-size: cover;
   
+}
+.grid div .carRight{
+content:url('https://png.pngtree.com/element_pic/17/07/06/e8470daff7348c4eea5d192d5829de50.jpg');
+background-repeat: no-repeat;
+background-size: cover;
 }
