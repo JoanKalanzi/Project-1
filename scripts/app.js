@@ -21,8 +21,8 @@ function init() {
  const positionLilyTwo = 2
  const positionLilyThree = 8
  const carLeftClass = 'carLeft'
- const leftCarOne = 108
- let leftMove = 108
+ const leftCarOne = 109
+ let leftMovingCar = 109
 //  let leftCarTwo = 101
 //  let leftCarThree= 103
 
@@ -107,15 +107,16 @@ function init() {
   function moveCar() {
     addCar(leftCarOne);
     setInterval(function(){ 
-      removeCar(leftMove)
-      console.log('moving left',leftMove)
-      leftMove --
-      console.log('moving left',leftMove)
-      addCar(leftMove)
-
-    }, 1000);
-
-
+      removeCar(leftMovingCar)
+      
+      if(leftMovingCar === 99) {
+        removeCar(leftMovingCar)
+        leftMovingCar = leftCarOne
+        removeCar(leftMovingCar)  
+      }
+      leftMovingCar --
+      addCar(leftMovingCar)
+    }, 2000);
   }
 
 // * we have 2 types and the first is setTimeout, they both come from the window
