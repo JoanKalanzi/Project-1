@@ -41,6 +41,7 @@ function init() {
  }
   function addFrog(position){
    cells[position].classList.add(frogClass)
+   console.log('frog->',position)
   }
   function removeFrog(position) {
    cells[position].classList.remove(frogClass)
@@ -57,7 +58,7 @@ function init() {
       
        currentFrogPosition--
        } else if( key === 38 && currentFrogPosition >= width){
-      
+       console.log('moving->',currentFrogPosition)
        currentFrogPosition -= width
        } else if(key === 40  && currentFrogPosition + width <= width * width -1) {
       
@@ -76,8 +77,9 @@ function init() {
        scoreDisplay.innerText = score 
       }else if(currentFrogPosition ===leftCarOne){
        console.log('You got hit!')
-       addFrog(currentFrogPosition)
+       
       }
+      addFrog(currentFrogPosition)
   }
   function addLilyPadOne (placementOne){
     cells[placementOne].classList.add('lilyPad')
