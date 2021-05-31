@@ -21,8 +21,11 @@ function init() {
  const positionLilyTwo = 2
  const positionLilyThree = 8
  const carLeftClass = 'carLeft'
+ const carRightClass = 'carRight'
  const leftCarOne = 109
  let leftMovingCar = 109
+ const rightCarStart = 88
+ let rightMovingCar = 88
 //  let leftCarTwo = 101
 //  let leftCarThree= 103
 
@@ -41,6 +44,7 @@ function init() {
       // addCar(leftCarOne)
       // removeCar(leftCarOne)
       moveCar()
+      moveCarRight()
       
   }
   function addFrog(position){
@@ -105,15 +109,15 @@ function init() {
   }
   function addCar (index){
    cells[index].classList.add('carLeft')
+   
   //  console.log('add car', addCar)
   }
-
+  
   function removeCar (index){
     cells[index].classList.remove('carLeft') 
-   
-    // console.log('removed car', removeCar)
-
   }
+  
+
   function moveCar() {
     addCar(leftCarOne);
     setInterval(function(){ 
@@ -128,7 +132,26 @@ function init() {
       addCar(leftMovingCar)
     }, 2000);
   }
-  
+  function addAnotherCar(car){
+    cells[car].classList.add('carRight')
+  }
+  function removeAnotherCar(car){
+    cells[car].classList.remove('carRight')
+  }
+  function moveCarRight() {
+    addAnotherCar(rightCarStart);
+    setInterval(function(){ 
+      removeAnotherCar(rightMovingCar)
+      
+      if(rightMovingCar === 98) {
+        removeAnotherCar(rightMovingCar)
+        rightMovingCar = rightCarStart
+        removeAnotherCar(rightMovingCar)  
+      }
+      rightMovingCar ++
+      addAnotherCar(rightMovingCar)
+    }, 2000);
+  }
     document.addEventListener('keyup', handleKeyUp)
      createGrid(startingFrogPosition)
 }
