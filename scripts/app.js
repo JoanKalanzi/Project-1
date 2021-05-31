@@ -21,7 +21,8 @@ function init() {
  const positionLilyTwo = 2
  const positionLilyThree = 8
  const carLeftClass = 'carLeft'
- const leftCarOne = 100
+ const leftCarOne = 108
+ let leftMove = 108
 //  let leftCarTwo = 101
 //  let leftCarThree= 103
 
@@ -37,7 +38,9 @@ function init() {
       addLilyPadOne(postionLilyOne)
       addLilyPadTwo(positionLilyTwo)
       addLilyPadThree(positionLilyThree)
-      addCar(leftCarOne)
+      // addCar(leftCarOne)
+      // removeCar(leftCarOne)
+      moveCar()
  }
   function addFrog(position){
    cells[position].classList.add(frogClass)
@@ -92,7 +95,54 @@ function init() {
   }
   function addCar (index){
    cells[index].classList.add('carLeft')
+   console.log('add car', addCar)
   }
+
+  function removeCar (index){
+    cells[index].classList.remove('carLeft') 
+   
+    console.log('removed car', removeCar)
+
+  }
+  function moveCar() {
+    addCar(leftCarOne);
+    setInterval(function(){ 
+      removeCar(leftMove)
+      console.log('moving left',leftMove)
+      leftMove --
+      console.log('moving left',leftMove)
+      addCar(leftMove)
+
+    }, 1000);
+
+
+  }
+
+// * we have 2 types and the first is setTimeout, they both come from the window
+// * setTimeout -> Delaying the execution of some code
+// * Execute some code ONCE, after a specified amount of time
+// * Do this example first and show in the console
+// const myFirstTimer = setTimeout(() => {
+//   console.log('Hello after 1 second')
+// }, 1000)
+// * The 2nd one is setInterval and this will
+// * Execute some code on a timer repeating
+// * Need to store timers in a variable in order to access the timers id, in order to clear it
+// * It is a function that takes 2 arguments, first is a function, second is the time itself in milliseconds 
+// * basic example:
+// const mySecondTimer = setInterval(() => {
+//   console.log('Hello every 1 second')
+// }, 1000)
+// console.log('myFirstTimer ->', myFirstTimer)
+// console.log('mySecondTimer ->', mySecondTimer)
+// const myOtherTimer = setInterval(function () {
+//   console.log('Running every second')
+// }, 1000)
+// const myFinalTimer = setInterval(myTimerFunction, 1000)
+// function myTimerFunction() {
+//   console.log('I am running')
+// }
+
 
   document.addEventListener('keyup', handleKeyUp)
   createGrid(startingFrogPosition)
