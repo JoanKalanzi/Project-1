@@ -1,4 +1,4 @@
-function init() {
+function init() { 
  const grid = document.querySelector('.grid')
  const startButton = document.querySelector('#start') 
  const scoreDisplay = document.querySelector('#score-display') 
@@ -26,19 +26,18 @@ function init() {
 //  let leftCarThree= 103
 
   function createGrid(startingFrogPosition){
-   for (let i = 0; i < cellCount; i++){
-   const cell = document.createElement('div')
-   cell.innerText = i
-   grid.appendChild(cell)
-   cells.push(cell)
-  } 
+      for (let i = 0; i < cellCount; i++){
+      const cell = document.createElement('div')
+      cell.innerText = i
+      grid.appendChild(cell)
+      cells.push(cell)
+      } 
   
-  addFrog(startingFrogPosition)
-  addLilyPadOne(postionLilyOne)
-  addLilyPadTwo(positionLilyTwo)
-  addLilyPadThree(positionLilyThree)
-  addCar(leftCarOne)
-  
+      addFrog(startingFrogPosition)
+      addLilyPadOne(postionLilyOne)
+      addLilyPadTwo(positionLilyTwo)
+      addLilyPadThree(positionLilyThree)
+      addCar(leftCarOne)
  }
   function addFrog(position){
    cells[position].classList.add(frogClass)
@@ -48,41 +47,38 @@ function init() {
   }
 
   function handleKeyUp(event) {
-    const key = event.keyCode
-    removeFrog(currentFrogPosition)
+       const key = event.keyCode
+       removeFrog(currentFrogPosition)
 
-   if(key === 39 && currentFrogPosition % width !== width -1) { 
-     currentFrogPosition ++
+       if(key === 39 && currentFrogPosition % width !== width -1) { 
+        currentFrogPosition ++
 
-    } else if( key === 37 && currentFrogPosition % width !== 0) {
+       } else if( key === 37 && currentFrogPosition % width !== 0) {
       
-      currentFrogPosition--
-    } else if( key === 38 && currentFrogPosition >= width){
+       currentFrogPosition--
+       } else if( key === 38 && currentFrogPosition >= width){
       
-      currentFrogPosition -= width
-    } else if(key === 40  && currentFrogPosition + width <= width * width -1) {
+       currentFrogPosition -= width
+       } else if(key === 40  && currentFrogPosition + width <= width * width -1) {
       
-      currentFrogPosition += width
-    } else {
-      console.log('INVALID KEY')
-    }
-    if(currentFrogPosition === postionLilyOne) {
-      score += 100 
-      scoreDisplay.innerText = score  
-    }else if(currentFrogPosition === positionLilyTwo){
-      score += 100 
-      scoreDisplay.innerText = score 
-    } else if(currentFrogPosition === positionLilyThree){
-      score += 100 
-      scoreDisplay.innerText = score 
-    }else if(currentFrogPosition ===leftCarOne){
-      console.log('You got hit!')
-     
-     
-     addFrog(currentFrogPosition)
-  
-     }
-  
+       currentFrogPosition += width
+      } else {
+        console.log('INVALID KEY')
+      }
+      if(currentFrogPosition === postionLilyOne) {
+       score += 100 
+       scoreDisplay.innerText = score  
+      }else if(currentFrogPosition === positionLilyTwo){
+       score += 100 
+       scoreDisplay.innerText = score 
+      } else if(currentFrogPosition === positionLilyThree){
+       score += 100 
+       scoreDisplay.innerText = score 
+      }else if(currentFrogPosition ===leftCarOne){
+       console.log('You got hit!')
+       addFrog(currentFrogPosition)
+      }
+  }
   function addLilyPadOne (placementOne){
     cells[placementOne].classList.add('lilyPad')
   }
@@ -93,11 +89,10 @@ function init() {
     cells[placementThree].classList.add('lilyPad')
   }
   function addCar (index){
-    cells[index].classList.add('carLeft')
+   cells[index].classList.add('carLeft')
   }
-    document.addEventListener('keyup', handleKeyUp)
-    createGrid(startingFrogPosition)
 
-
- }
- window.addEventListener('DOMContentLoaded', init)
+  document.addEventListener('keyup', handleKeyUp)
+  createGrid(startingFrogPosition)
+}
+  window.addEventListener('DOMContentLoaded', init)
