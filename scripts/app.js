@@ -22,10 +22,13 @@ function init() {
  const positionLilyThree = 8
  const carLeftClass = 'carLeft'
  const carRightClass = 'carRight'
+ const carRightTwoClass = 'carLeftTwo'
  const leftCarOne = 109
  let leftMovingCar = 109
  const rightCarStart = 88
  let rightMovingCar = 88
+ const carTwoStart = 107
+ let leftCarTwoMove = 107
 //  let leftCarTwo = 101
 //  let leftCarThree= 103
 
@@ -45,6 +48,9 @@ function init() {
       // removeCar(leftCarOne)
       moveCar()
       moveCarRight()
+      moveThirdCarLeft()
+      // addThirdLeftCar(CarTwoStart)
+      // removeThirdLeftCar(CarTwoStart)
       
   }
   function addFrog(position){
@@ -52,7 +58,9 @@ function init() {
    console.log('frog->',position)
   }
   function removeFrog(position) {
+    console.log('inside frog function')
    cells[position].classList.remove(frogClass)
+  
   }
 
   function handleKeyUp(event) {
@@ -84,13 +92,12 @@ function init() {
       } else if(currentFrogPosition === positionLilyThree){
        score += 100 
        scoreDisplay.innerText = score 
-      }else if( currentFrogPosition === leftMovingCar){
+      }else if(currentFrogPosition === leftMovingCar){
         removeFrog
         currentFrogPosition = startingFrogPosition
-      } else if(leftMovingCar === currentFrogPosition){
+      }else if(currentFrogPosition === rightMovingCar){
         removeFrog
-        leftMovingCar = leftCarOne
-        
+        currentFrogPosition = startingFrogPosition
       }
       
       addFrog(currentFrogPosition) 
@@ -130,6 +137,14 @@ function init() {
       }
       leftMovingCar --
       addCar(leftMovingCar)
+      // if(currentFrogPosition === leftMovingCar){
+      //   console.log('car hit frog')
+      //    removeFrog
+      //   currentFrogPosition = startingFrogPosition
+         
+      // }
+      // not working here!! find somewhere else ;)
+      
     }, 2000);
   }
   function addAnotherCar(car){
@@ -150,6 +165,27 @@ function init() {
       }
       rightMovingCar ++
       addAnotherCar(rightMovingCar)
+    }, 2000);
+  }
+  function addThirdLeftCar(two){
+    cells[two].classList.add('carLeftTwo') 
+  }
+  function removeThirdLeftCar(two) {
+    cells[two].classList.remove('carLeftTwo')
+  }
+  // add second car moving left
+  function moveThirdCarLeft() {
+    addThirdLeftCar(carTwoStart);
+    setInterval(function(){ 
+      removeThirdLeftCar(leftCarTwoMove)
+      
+      if(leftCarTwoMove === 99) {
+        removeThirdLeftCar(leftCarTwoMove)
+        leftCarTwoMove = carTwoStart
+        removeThirdLeftCar(leftCarTwoMove)  
+      }
+      leftCarTwoMove --
+      addThirdLeftCar(leftCarTwoMove)
     }, 2000);
   }
     document.addEventListener('keyup', handleKeyUp)

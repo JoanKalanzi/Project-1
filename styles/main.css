@@ -51,7 +51,7 @@ body {
   background-size: cover; 
 }
 .grid div.carLeft{
-  content:url('https://lh3.googleusercontent.com/proxy/Z0X8qFfbtweadPlOBNKkhY_H_0ncMFBwzEont6qPpyr9bxZCjSJWMTlBBPpdz-vkie1gH3ub9XPw5Ytv45wqNRtfQN9GvdneDkxEWNvjTTcVaNZolqaBENQa-X1AxmKVUy6sA-y-lihe');
+  content:url('https://png.pngtree.com/png-clipart/20201212/ourmid/pngtree-car-clipart-red-private-car-png-image_2537701.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   
@@ -60,4 +60,9 @@ body {
 content:url('https://png.pngtree.com/element_our/20200703/ourlarge/pngtree-cartoon-yellow-car-illustration-image_2299659.jpg');
 background-repeat: no-repeat;
 background-size: cover;
+}
+.grid div.carLeftTwo {
+ content:url('https://media1.giphy.com/media/q24NPFarcRh9CyqGGv/200w.webp?cid=ecf05e47v7a0v2l80zum2p2n8hq0hoo6yvzlc7jx3qogyfe4&rid=200w.webp&ct=s');
+ background-repeat: no-repeat;
+ background-size: cover;
 }
