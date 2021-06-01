@@ -66,3 +66,18 @@ background-size: cover;
  background-repeat: no-repeat;
  background-size: cover;
 }
+.grid div.carLeftThree {
+  content:url('https://www.pngkey.com/png/full/66-669439_girl-driving-a-green-car-free-clip-art.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.grid div.carRightTwo {
+  content:url('https://lh3.googleusercontent.com/proxy/qYxahv0hJEWjkHe90H4_HhLcCkpR7sBjMc4M_xagBS6zFW_5URb66nAgeSIZlfiDgncSGZSvRBnv-Jh5XrtDJzz_8k-pMiWGzLe1ONHTyKE-gdR6Sog0SoM1ido-OGVpuw929fKOAa2T');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.grid div.crossedRoadSafe{
+  background-image: url('https://banner2.cleanpng.com/20180218/uvq/kisspng-free-content-download-website-clip-art-animated-grass-cliparts-5a89dc3b679949.9715991315189842514244.jpg');
+  background-repeat: no-repeat;
+  background-size: cover
+}

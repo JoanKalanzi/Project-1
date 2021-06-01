@@ -12,6 +12,7 @@ function init() {
  const frogClass = 'frog'
  const lilyClass ='lilyPad'
  
+ 
 //  let TimerID // variable to store the timer id
 //  let remainingTime   // to set how long the game should run for
  let score = 0  // start score at 0
@@ -23,12 +24,19 @@ function init() {
  const carLeftClass = 'carLeft'
  const carRightClass = 'carRight'
  const carRightTwoClass = 'carLeftTwo'
+ const carLeftThirdClass ='carLeftThree'
+ const carTwoRightClass = 'carRightTwo'
  const leftCarOne = 109
  let leftMovingCar = 109
  const rightCarStart = 88
  let rightMovingCar = 88
  const carTwoStart = 107
  let leftCarTwoMove = 107
+ const leftCarThree = 105
+ let leftCarThreeMove =105
+ const rightCarTwoStart = 90
+ let carMovingRight = 90
+
 //  let leftCarTwo = 101
 //  let leftCarThree= 103
 
@@ -44,22 +52,22 @@ function init() {
       addLilyPadOne(postionLilyOne)
       addLilyPadTwo(positionLilyTwo)
       addLilyPadThree(positionLilyThree)
-      // addCar(leftCarOne)
-      // removeCar(leftCarOne)
+      
       moveCar()
       moveCarRight()
+      moveSecondCarRight()
       moveThirdCarLeft()
-      // addThirdLeftCar(CarTwoStart)
-      // removeThirdLeftCar(CarTwoStart)
+      moveThirdCar()
+      
       
   }
   function addFrog(position){
-   cells[position].classList.add(frogClass)
-   console.log('frog->',position)
+   cells[position].classList.add('frog')
+  //  console.log('frog->',position)
   }
   function removeFrog(position) {
-    console.log('inside frog function')
-   cells[position].classList.remove(frogClass)
+    // console.log('inside frog function')
+   cells[position].classList.remove('frog')
   
   }
 
@@ -74,7 +82,7 @@ function init() {
       
        currentFrogPosition--
        } else if( key === 38 && currentFrogPosition >= width){
-       console.log('moving->',currentFrogPosition)
+      //  console.log('moving->',currentFrogPosition)
        currentFrogPosition -= width
        } else if(key === 40  && currentFrogPosition + width <= width * width -1) {
       
@@ -92,15 +100,27 @@ function init() {
       } else if(currentFrogPosition === positionLilyThree){
        score += 100 
        scoreDisplay.innerText = score 
-      }else if(currentFrogPosition === leftMovingCar){
+      }if(currentFrogPosition === leftMovingCar){
         removeFrog
         currentFrogPosition = startingFrogPosition
-      }else if(currentFrogPosition === rightMovingCar){
+      } else if (currentFrogPosition === leftCarTwoMove){
         removeFrog
         currentFrogPosition = startingFrogPosition
+      } else if(currentFrogPosition === rightMovingCar){
+         console.log('you got hit')
+         console.log ('removed frog',removeFrog)
+         currentFrogPosition = startingFrogPosition
+      } else if(currentFrogPosition === leftCarThreeMove){
+         console.log('you got hit')
+         console.log ('removed frog',removeFrog)
+         currentFrogPosition = startingFrogPosition
+      }if(currentFrogPosition === carMovingRight){
+         console.log('you got hit')
+         console.log ('removed frog',removeFrog)
+         currentFrogPosition = startingFrogPosition
       }
+      addFrog(currentFrogPosition)
       
-      addFrog(currentFrogPosition) 
   }
       
       
@@ -137,13 +157,12 @@ function init() {
       }
       leftMovingCar --
       addCar(leftMovingCar)
-      // if(currentFrogPosition === leftMovingCar){
-      //   console.log('car hit frog')
-      //    removeFrog
-      //   currentFrogPosition = startingFrogPosition
+      if(currentFrogPosition === leftMovingCar){
+         removeFrog(currentFrogPosition)
+         addFrog(startingFrogPosition)
          
-      // }
-      // not working here!! find somewhere else ;)
+      }
+      
       
     }, 2000);
   }
@@ -165,6 +184,10 @@ function init() {
       }
       rightMovingCar ++
       addAnotherCar(rightMovingCar)
+      if(currentFrogPosition === rightMovingCar){
+        removeFrog(currentFrogPosition)
+         addFrog(startingFrogPosition)
+      }
     }, 2000);
   }
   function addThirdLeftCar(two){
@@ -186,8 +209,63 @@ function init() {
       }
       leftCarTwoMove --
       addThirdLeftCar(leftCarTwoMove)
+      if(currentFrogPosition === leftCarTwoMove){
+        removeFrog(currentFrogPosition)
+         addFrog(startingFrogPosition)
+      }
     }, 2000);
   }
+// third car moving left !!!
+  function addThirdCarLeft(three){
+    cells[three].classList.add('carLeftThree') 
+  }
+  function removeThirdCarLeft(three){
+    cells[three].classList.remove('carLeftThree') 
+  }
+  function moveThirdCar() {
+    addThirdCarLeft(leftCarThree);
+    setInterval(function(){ 
+      removeThirdCarLeft(leftCarThreeMove)
+      
+      if(leftCarThreeMove === 99) {
+        removeThirdCarLeft(leftCarThreeMove)
+        leftCarThreeMove = leftCarThree
+        removeThirdCarLeft(leftCarThreeMove)  
+      }
+      leftCarThreeMove --
+      addThirdCarLeft(leftCarThreeMove)
+      if(currentFrogPosition === leftCarThreeMove){
+        removeFrog(currentFrogPosition)
+         addFrog(startingFrogPosition)
+      }
+    }, 2000);
+  }
+  function addSecondCarRight(right){
+    cells[right].classList.add('carRightTwo') 
+  }
+  function removeSecondCarRight(right){
+    cells[right].classList.remove('carRightTwo') 
+  }
+  function moveSecondCarRight() {
+    addSecondCarRight(rightCarTwoStart)
+    setInterval(function(){ 
+      removeSecondCarRight(carMovingRight)
+      
+      if(carMovingRight === 98) {
+        removeSecondCarRight(carMovingRight)
+        carMovingRight = rightCarTwoStart
+        removeSecondCarRight(carMovingRight)
+      }
+      carMovingRight ++
+      addSecondCarRight(carMovingRight)
+      if(currentFrogPosition === carMovingRight){
+        removeFrog(currentFrogPosition)
+         addFrog(startingFrogPosition)
+      }
+    }, 2000);
+  }
+  // addSecondCarRight(rightCarTwoStart)
+      // removeSecondCarRight(rightCarTwoStart)
     document.addEventListener('keyup', handleKeyUp)
      createGrid(startingFrogPosition)
 }
