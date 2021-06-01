@@ -26,16 +26,31 @@ function init() {
  const carRightTwoClass = 'carLeftTwo'
  const carLeftThirdClass ='carLeftThree'
  const carTwoRightClass = 'carRightTwo'
- const leftCarOne = 109
- let leftMovingCar = 109
+ const log = 'log'
+ const logTwo = 'logTwo'
+ const logThree = 'logThree'
+ const logFour = 'logFour'
+ const leftCarOne = 87
+ let leftMovingCar = 87
  const rightCarStart = 88
  let rightMovingCar = 88
- const carTwoStart = 107
- let leftCarTwoMove = 107
- const leftCarThree = 105
- let leftCarThreeMove =105
+ const carTwoStart = 85
+ let leftCarTwoMove = 85
+ const leftCarThree = 83
+ let leftCarThreeMove =83
  const rightCarTwoStart = 90
  let carMovingRight = 90
+ const logOne = 33
+ let movinglogOne = 33
+ const logTwoStart =  36
+ let movingLogTwo = 36
+ const logThreeStart = 54
+ let movingLogThree = 54
+ const logFourStart = 50
+ let movingLogFour = 50
+
+
+  
 
 //  let leftCarTwo = 101
 //  let leftCarThree= 103
@@ -58,6 +73,13 @@ function init() {
       moveSecondCarRight()
       moveThirdCarLeft()
       moveThirdCar()
+      moveLogRight()
+      moveLogRightTwo()
+      moveLogLeftOne()
+      moveLogTwoRight()
+     
+
+      
       
       
   }
@@ -114,8 +136,12 @@ function init() {
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
          currentFrogPosition = startingFrogPosition
-      }if(currentFrogPosition === carMovingRight){
+      }else if(currentFrogPosition === carMovingRight){
          console.log('you got hit')
+         console.log ('removed frog',addFrog)
+         currentFrogPosition = startingFrogPosition
+      } else if(currentFrogPosition == movinglogOne){
+        console.log('you got hit')
          console.log ('removed frog',removeFrog)
          currentFrogPosition = startingFrogPosition
       }
@@ -150,7 +176,7 @@ function init() {
     setInterval(function(){ 
       removeCar(leftMovingCar)
       
-      if(leftMovingCar === 99) {
+      if(leftMovingCar === 77) {
         removeCar(leftMovingCar)
         leftMovingCar = leftCarOne
         removeCar(leftMovingCar)  
@@ -202,7 +228,7 @@ function init() {
     setInterval(function(){ 
       removeThirdLeftCar(leftCarTwoMove)
       
-      if(leftCarTwoMove === 99) {
+      if(leftCarTwoMove === 77) {
         removeThirdLeftCar(leftCarTwoMove)
         leftCarTwoMove = carTwoStart
         removeThirdLeftCar(leftCarTwoMove)  
@@ -227,7 +253,7 @@ function init() {
     setInterval(function(){ 
       removeThirdCarLeft(leftCarThreeMove)
       
-      if(leftCarThreeMove === 99) {
+      if(leftCarThreeMove === 77) {
         removeThirdCarLeft(leftCarThreeMove)
         leftCarThreeMove = leftCarThree
         removeThirdCarLeft(leftCarThreeMove)  
@@ -264,8 +290,108 @@ function init() {
       }
     }, 2000);
   }
-  // addSecondCarRight(rightCarTwoStart)
-      // removeSecondCarRight(rightCarTwoStart)
+  function addLogOne(one){
+    cells[one].classList.add('log') 
+  }
+  function removeLogOne(one){
+    cells[one].classList.remove('log') 
+  }
+  // ADDING logs!!
+  function moveLogRight() {
+     addLogOne(logOne)
+      setInterval(function(){ 
+        removeLogOne(movinglogOne)
+          
+          if(movinglogOne === 43) {
+            removeLogOne(movinglogOne)
+            movinglogOne = logOne
+            removeLogOne(movinglogOne)
+          }
+          movinglogOne ++
+          addLogOne(movinglogOne)
+          if(currentFrogPosition === movinglogOne){
+            removeFrog(currentFrogPosition)
+             addFrog(startingFrogPosition)
+          }
+        }, 1000);
+      }
+      // need to add some about the frog floating with the log
+  function addLogTwo(two){
+    cells[two].classList.add('logTwo') 
+  }
+  function removeLogTwo(two){
+    cells[two].classList.remove('logTwo') 
+  }
+  function moveLogRightTwo() {
+    addLogTwo(logTwoStart)
+     setInterval(function(){ 
+       removeLogTwo(movingLogTwo)
+         
+         if(movingLogTwo === 43) {
+           removeLogTwo(movingLogTwo)
+           movingLogTwo = logTwoStart
+           removeLogTwo(movingLogTwo)
+         }
+         movingLogTwo ++
+         addLogTwo(movingLogTwo)
+         if(currentFrogPosition === movingLogTwo){
+           removeFrog(currentFrogPosition)
+            addFrog(startingFrogPosition)
+         }
+       }, 1000);
+     }
+    //  new log on the line starting  54
+     function addLogLeft(three){
+      cells[three].classList.add('logThree') 
+    }
+    function removeLogLeft(three){
+      cells[three].classList.remove('logThree') 
+    }
+    function moveLogLeftOne() {
+      addLogLeft(logThreeStart)
+       setInterval(function(){ 
+         removeLogLeft(movingLogThree)
+           
+           if(movingLogThree === 44) {
+             removeLogLeft(movingLogThree)
+             movingLogThree = logThreeStart
+             removeLogLeft(movingLogThree)
+           }
+           movingLogThree --
+           addLogLeft(movingLogThree)
+           if(currentFrogPosition === movingLogThree){
+             removeFrog(currentFrogPosition)
+              addFrog(startingFrogPosition)
+           }
+         }, 1000);
+       }
+      //  adding the last log moving Right
+      function addLogLeftTwo(four){
+        cells[four].classList.add('logFour') 
+      }
+      function removeLogleftTwo(four){
+        cells[four].classList.remove('logFour') 
+      }
+      function moveLogTwoRight() {
+        addLogLeftTwo(logFourStart)
+         setInterval(function(){ 
+           removeLogleftTwo(movingLogFour)
+             
+             if(movingLogFour === 44) {
+               removeLogleftTwo(movingLogFour)
+               movingLogFour = logFourStart
+               removeLogleftTwo(movingLogFour)
+             }
+             movingLogFour --
+             addLogLeftTwo(movingLogFour)
+             if(currentFrogPosition === movingLogFour){
+               removeFrog(currentFrogPosition)
+                addFrog(startingFrogPosition)
+             }
+           }, 1000);
+         }
+      //  const logFoutStart = 50
+      //  let movingLogFour = 50
     document.addEventListener('keyup', handleKeyUp)
      createGrid(startingFrogPosition)
 }

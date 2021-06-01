@@ -57,7 +57,7 @@ body {
   
 }
 .grid div.carRight{
-content:url('https://png.pngtree.com/element_our/20200703/ourlarge/pngtree-cartoon-yellow-car-illustration-image_2299659.jpg');
+  content:url('https://png.pngtree.com/element_our/20200703/ourlarge/pngtree-cartoon-yellow-car-illustration-image_2299659.jpg');
 background-repeat: no-repeat;
 background-size: cover;
 }
@@ -76,8 +76,23 @@ background-size: cover;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.grid div.crossedRoadSafe{
-  background-image: url('https://banner2.cleanpng.com/20180218/uvq/kisspng-free-content-download-website-clip-art-animated-grass-cliparts-5a89dc3b679949.9715991315189842514244.jpg');
+.grid div.log{
+ content: url('https://cdn.pixabay.com/photo/2014/12/22/00/07/tree-576846__480.png');
   background-repeat: no-repeat;
   background-size: cover
 }
+.grid div.logTwo{
+  content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD2B8xVqnNm0VwJxVTMZIr2QY3tOq_AjpT1bnNRQ3oMW3RvJfQPifrmfS2UPKozvqQegU&usqp=CAU');
+   background-repeat: no-repeat;
+   background-size: cover
+ }
+ .grid div.logThree{
+  content: url('https://banner2.cleanpng.com/20180827/xsi/kisspng-forest-log-tree-firewood-firewood-forest-log-trapped-png-image-picpng-5b8434d2c438c0.4754663615353909308037.jpg');
+   background-repeat: no-repeat;
+   background-size: cover
+ }
+ .grid div.logFour{
+  content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD2B8xVqnNm0VwJxVTMZIr2QY3tOq_AjpT1bnNRQ3oMW3RvJfQPifrmfS2UPKozvqQegU&usqp=CAU');
+   background-repeat: no-repeat;
+   background-size: cover
+ }
