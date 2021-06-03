@@ -11,7 +11,8 @@ function init() {
  let currentFrogPosition = 115
  const frogClass = 'frog'
  const lilyClass ='lilyPad'
-//  const audio =
+ const planetClass = 'frogHome'
+//  const  backgroundClass = 'img'
  
  
  let frogTimer // variable to store the timer id
@@ -79,6 +80,7 @@ function init() {
       moveLogRightTwo()
       moveLogLeftOne()
       moveLogTwoRight()
+      // addBackgroundOne(cells[120])
      
 
       
@@ -90,7 +92,7 @@ function init() {
   //  console.log('frog->',position)
   }
   function removeFrog(position) {
-    // console.log('inside frog function')
+    console.log('removed frog from current position')
    cells[position].classList.remove('frog')
   
   }
@@ -136,7 +138,14 @@ function init() {
       
       if(currentFrogPosition === postionLilyOne) {
        score += 100 
-       scoreDisplay.innerText = score  
+       scoreDisplay.innerText = score 
+       removeFrog(currentFrogPosition) 
+       
+       removeLilyPadOne(postionLilyOne)
+       
+       addPlanet(postionLilyOne)
+       
+       currentFrogPosition = startingFrogPosition
       }else if(currentFrogPosition === positionLilyTwo){
        score += 100 
        scoreDisplay.innerText = score 
@@ -187,11 +196,21 @@ function init() {
   function addLilyPadOne (placementOne){
     cells[placementOne].classList.add('lilyPad')
   }
+  function removeLilyPadOne (placementOne){
+    cells[placementOne].classList.remove('lilyPad')
+    console.log('removed lilypad')
+  }
   function addLilyPadTwo(placementTwo) {
     cells[placementTwo].classList.add('lilyPad')
   }
+  function removeLilyPadTwo(placementTwo) {
+    cells[placementTwo].classList.remove('lilyPad')
+  }
   function addLilyPadThree(placementThree) {
     cells[placementThree].classList.add('lilyPad')
+  }
+  function removeLilyPadThree(placementThree) {
+    cells[placementThree].classList.remove('lilyPad')
   }
   function addCar (index){
    cells[index].classList.add('carLeft')
@@ -384,7 +403,26 @@ function init() {
     addLogTwo(logTwoStart)
      setInterval(function(){ 
        removeLogTwo(movingLogTwo)
-         
+         if(currentFrogPosition !== movingLogTwo){
+          cells.forEach(cell => cell.classList.remove('frogonlog')) 
+         }
+         if(currentFrogPosition === movingLogTwo){
+           removeLogTwo(movingLogTwo)
+           addFrogOnLog(movingLogTwo)
+           score += 100
+           scoreDisplay.innerText = score
+           removeFrog(currentFrogPosition)
+           removeFrogOnLog
+           removeFrogOnLog(movingLogTwo)
+
+           if(currentFrogPosition === 43){
+            removeFrogOnLog(currentFrogPosition)
+            currentFrogPosition = logTwoStart
+            removeFrogOnLog(currentFrogPosition)
+          }
+          currentFrogPosition ++
+          addFrogOnLog(currentFrogPosition)
+         }
          if(movingLogTwo === 43) {
            removeLogTwo(movingLogTwo)
            movingLogTwo = logTwoStart
@@ -392,37 +430,53 @@ function init() {
          }
          movingLogTwo ++
          addLogTwo(movingLogTwo)
-         if(currentFrogPosition === movingLogTwo){
-           removeFrog(currentFrogPosition)
-            addFrog(startingFrogPosition)
-         }
-       }, 1000);
-     }
+
+    }, 1000);
+  }
     //  new log on the line starting  54
-     function addLogLeft(three){
-      cells[three].classList.add('logThree') 
-    }
-    function removeLogLeft(three){
-      cells[three].classList.remove('logThree') 
-    }
-    function moveLogLeftOne() {
-      addLogLeft(logThreeStart)
-       setInterval(function(){ 
-         removeLogLeft(movingLogThree)
+  function addLogLeft(three){
+    cells[three].classList.add('logThree') 
+  }
+  function removeLogLeft(three){
+    cells[three].classList.remove('logThree') 
+  }
+  function moveLogLeftOne() {
+    addLogLeft(logThreeStart)
+      setInterval(function(){ 
+        removeLogLeft(movingLogThree)
+         if(currentFrogPosition !== movingLogThree){
+           cells.forEach(cell => cell.classList.remove('frogonlog')) 
+         }
+         if(currentFrogPosition === movingLogThree){
+            removeLogLeft(movingLogThree)
+            addFrogOnLog(movingLogThree)
+            score += 100
+            scoreDisplay.innerText = score
+            removeFrog(currentFrogPosition)
+            removeFrogOnLog
+            removeFrogOnLog(movingLogThree)
+
+            if(currentFrogPosition === 44){
+              removeFrogOnLog(currentFrogPosition)
+              currentFrogPosition = logThreeStart
+              removeFrogOnLog(currentFrogPosition)
+            }
+            currentFrogPosition --
+            addFrogOnLog(currentFrogPosition)
+
+         }
            
-           if(movingLogThree === 44) {
-             removeLogLeft(movingLogThree)
-             movingLogThree = logThreeStart
-             removeLogLeft(movingLogThree)
-           }
-           movingLogThree --
-           addLogLeft(movingLogThree)
-           if(currentFrogPosition === movingLogThree){
-             removeFrog(currentFrogPosition)
-              addFrog(startingFrogPosition)
-           }
-         }, 1000);
-       }
+        if(movingLogThree === 44) {
+            removeLogLeft(movingLogThree)
+            movingLogThree = logThreeStart
+            removeLogLeft(movingLogThree)
+        }
+            movingLogThree --
+            addLogLeft(movingLogThree)
+          
+           
+      }, 1000);
+  }
       //  adding the last log moving Right
       function addLogLeftTwo(four){
         cells[four].classList.add('logFour') 
@@ -434,7 +488,27 @@ function init() {
         addLogLeftTwo(logFourStart)
          setInterval(function(){ 
            removeLogleftTwo(movingLogFour)
-             
+           if(currentFrogPosition !== movingLogFour){
+            cells.forEach(cell => cell.classList.remove('frogonlog')) 
+          }
+          if(currentFrogPosition === movingLogFour){
+            removeLogleftTwo(movingLogFour)
+            addFrogOnLog(movingLogFour)
+            score += 100
+            scoreDisplay.innerText = score
+            removeFrog(currentFrogPosition)
+            removeFrogOnLog
+            removeFrogOnLog(movingLogFour)
+ 
+           if(currentFrogPosition === 44){
+             removeFrogOnLog(currentFrogPosition)
+             currentFrogPosition = logFourStart
+             removeFrogOnLog(currentFrogPosition)
+           }
+           currentFrogPosition --
+           addFrogOnLog(currentFrogPosition)
+ 
+          }
              if(movingLogFour === 44) {
                removeLogleftTwo(movingLogFour)
                movingLogFour = logFourStart
@@ -442,12 +516,19 @@ function init() {
              }
              movingLogFour --
              addLogLeftTwo(movingLogFour)
-             if(currentFrogPosition === movingLogFour){
-               removeFrog(currentFrogPosition)
-                addFrog(startingFrogPosition)
-             }
-           }, 1000);
-         }
+         }, 1000);
+      }
+      // function addBackgroundOne(safe) {
+      //   cells[safe].classList.add('img')
+
+      // }
+      function addPlanet(net) {
+        cells[net].classList.add('frogHome')
+        console.log(net)
+      }
+      function removePlanet(net) {
+        cells[net].classList.remove('frogHome')
+      }
          startButton.addEventListener('click', startGame) 
       
     

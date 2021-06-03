@@ -135,7 +135,13 @@ background-size: cover;
    background-size: cover
  }
  .grid div.background {
-   background-image: url();
+   background-image: url(https://64.media.tumblr.com/5b29dde53019eb5020f30d12ecbf1e55/tumblr_pv2ssi9YDM1wg7k9po1_500.gifv);
+   background-repeat: no-repeat;
+   background-size: cover
  }
- 
+ .grid div.frogHome{
+  content:url('https://media0.giphy.com/media/lVmkwB6gRrSCMD5eDp/giphy.gif?cid=790b761123f803689faa088659553a38b4e7aeca7f028016&rid=giphy.gif&ct=s');
+  background-repeat: no-repeat;
+  background-size: cover
+ }
 
