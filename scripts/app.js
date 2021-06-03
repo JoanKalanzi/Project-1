@@ -11,6 +11,7 @@ function init() {
  let currentFrogPosition = 115
  const frogClass = 'frog'
  const lilyClass ='lilyPad'
+//  const audio =
  
  
  let frogTimer // variable to store the timer id
@@ -75,9 +76,9 @@ function init() {
       moveThirdCarLeft()
       moveThirdCar()
       moveLogRight()
-      // moveLogRightTwo()
-      // moveLogLeftOne()
-      // moveLogTwoRight()
+      moveLogRightTwo()
+      moveLogLeftOne()
+      moveLogTwoRight()
      
 
       
@@ -102,7 +103,9 @@ function init() {
           if (livesRemaining <= 0) {
             alert('GAME OVER') // check how many lives are left
           alert(`You scored ${score}`)  // alert the score to the user
-          clearInterval(frogTimer)  // clear the timer to stop it running
+          clearInterval(frogTimer) 
+          clearInterval(score)
+           // clear the timer to stop it running
           return  // return here so the function stops running here and doesnt carry on to the code outside of the if block
           }
 
@@ -193,7 +196,7 @@ function init() {
   function addCar (index){
    cells[index].classList.add('carLeft')
    
-  //  console.log('add car', addCar)
+  
   }
   
   function removeCar (index){
@@ -338,6 +341,9 @@ function init() {
      addLogOne(logOne)
       setInterval(function(){ 
         removeLogOne(movinglogOne)
+        if (currentFrogPosition !== movinglogOne) {
+          cells.forEach(cell => cell.classList.remove('frogonlog'))
+        } 
           if(currentFrogPosition === movinglogOne){
             console.log('same position')
             removeLogOne(movinglogOne)
@@ -348,6 +354,7 @@ function init() {
             removeFrog(currentFrogPosition)
             console.log('add frog')
              removeFrogOnLog(movinglogOne)
+             removeFrogOnLog
             if(currentFrogPosition === 43) {
               removeFrogOnLog(currentFrogPosition)
              currentFrogPosition = logOne
@@ -355,7 +362,7 @@ function init() {
             }
             currentFrogPosition ++
             addFrogOnLog(currentFrogPosition)
-          }
+          } 
           if(movinglogOne === 43) {
             removeLogOne(movinglogOne)
             movinglogOne = logOne
