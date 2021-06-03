@@ -15,9 +15,9 @@ function init() {
 //  const  backgroundClass = 'img'
  
  
- let frogTimer // variable to store the timer id
- let livesRemaining = 3  // to set how long the game should run for
- let score = 0  // start score at 0
+ let frogTimer 
+ let livesRemaining = 3  
+ let score = 0 
 
  
  const postionLilyOne = 5
@@ -98,15 +98,22 @@ function init() {
   }
   function startGame(){
     console.log('click')
+    console.log(' lives',livesRemaining)
     removeFrog(currentFrogPosition)
+    console.log(' livesssss',livesRemaining)
     console.log('removed frog from current position')
-      frogTimer = setInterval(() => { 
-        
+      frogTimer = setInterval(function(){  
+        // console.log(livesRemaining)
           if (livesRemaining <= 0) {
-            alert('GAME OVER') // check how many lives are left
-          alert(`You scored ${score}`)  // alert the score to the user
-          clearInterval(frogTimer) 
-          clearInterval(score)
+             // check how many lives are left
+            console.log('hello')
+            alert('GAME OVER')
+            alert(`You scored ${score}`) 
+         
+           console.log('you scored this')
+           clearInterval(frogTimer)
+           console.log('stooped timer') 
+          // clearInterval(score)
            // clear the timer to stop it running
           return  // return here so the function stops running here and doesnt carry on to the code outside of the if block
           }
@@ -154,30 +161,30 @@ function init() {
        scoreDisplay.innerText = score 
       }if(currentFrogPosition === leftMovingCar){
         removeFrog
-        livesRemaining -= 1
+        if(livesRemaining > 0){livesRemaining -=1}
         livesDisplay.innerText = livesRemaining
         currentFrogPosition = startingFrogPosition
       } else if (currentFrogPosition === leftCarTwoMove){
         removeFrog
-        livesRemaining -= 1
+        if(livesRemaining > 0){livesRemaining -=1}
         livesDisplay.innerText =livesRemaining
         currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === rightMovingCar){
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
-         livesRemaining -= 1
+         if(livesRemaining > 0){livesRemaining -=1}
          livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === leftCarThreeMove){
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
-         livesRemaining -= 1
+         if(livesRemaining > 0){livesRemaining -=1}
          livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       }else if(currentFrogPosition === carMovingRight){
          console.log('you got hit')
          console.log ('removed frog',addFrog)
-         livesRemaining -= 1
+         if(livesRemaining > 0){livesRemaining -=1}
          livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       } 
