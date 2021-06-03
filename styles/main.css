@@ -6,6 +6,13 @@ body {
   height: 100vh;
   margin: 0;
   color:black;
+  background-image: url('https://64.media.tumblr.com/94f541a71c14550a969614a05138b844/tumblr_okdkmulUCh1qbfqtwo1_400.gifv');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+p{
+  font-size: 20px;
+  color: antiquewhite;
 }
 .controls-wrapper {
   height: 10vh;
@@ -22,6 +29,31 @@ body {
   justify-content: center;
   align-items: center;
 }
+button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: rgb(0 0 0);
+    background-color: rgb(27, 212, 236);
+    border: none;
+    border-radius: 15px;
+    box-shadow: inset 20px 15px 20px 10px rgb(194 183 243);
+}
+ p {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: rgb(0 0 0);
+    background-color: rgb(27, 212, 236);
+    border: none;
+    border-radius: 15px;
+    box-shadow: inset 20px 15px 20px 10px rgb(194 183 243);
+}
+
 
 .grid {
   align-items: center;
@@ -39,60 +71,71 @@ body {
   flex-grow: 1;
   height: 9%;
   width: 9%;
+  color:white;
 }
 
 .grid div.frog {
-  content: url('https://cutewallpaper.org/21/animated-frog-picture/Animated-frog-images-clipart-images-gallery-for-free-.png');
+  content: url('https://banner2.cleanpng.com/20180823/btx/kisspng-drawing-frog-image-gif-coloring-book-hayvanlar-alemi-on-emaze-5b7ea0df924b34.9162225715350253755992.jpg');
   cursor: pointer;
 }
 .grid div.lilyPad {
-  background-image: url('https://www.netclipart.com/pp/m/57-571248_lily-pad-clipart-lily-pad-clipart-png.png');
+  background-image: url('https://media0.giphy.com/media/hqaeBXQjXTMgAkekhm/giphy.gif?cid=6c09b95265y2kz7nkmbpluxm1r3kbsuuhz2bctdoc64j8n1o&rid=giphy.gif&ct=s');
   background-repeat: no-repeat;
   background-size: cover; 
 }
 .grid div.carLeft{
-  content:url('https://png.pngtree.com/png-clipart/20201212/ourmid/pngtree-car-clipart-red-private-car-png-image_2537701.jpg');
+  content:url('https://i0.wp.com/24.media.tumblr.com/5c428b0416dea253ae680f7688a41e9b/tumblr_mmv8c3IiTO1sqhtkyo1_250.gif');
   background-repeat: no-repeat;
   background-size: cover;
   
 }
 .grid div.carRight{
-  content:url('https://png.pngtree.com/element_our/20200703/ourlarge/pngtree-cartoon-yellow-car-illustration-image_2299659.jpg');
+  content:url('https://media1.giphy.com/media/kfds8RuptI555XkgzL/giphy.gif?cid=6c09b952ev4xnynnnsnah128x0106trmjl9e4zdirmb41spb&rid=giphy.gif&ct=s');
 background-repeat: no-repeat;
 background-size: cover;
 }
 .grid div.carLeftTwo {
- content:url('https://media1.giphy.com/media/q24NPFarcRh9CyqGGv/200w.webp?cid=ecf05e47v7a0v2l80zum2p2n8hq0hoo6yvzlc7jx3qogyfe4&rid=200w.webp&ct=s');
+ content:url('https://i0.wp.com/24.media.tumblr.com/5c428b0416dea253ae680f7688a41e9b/tumblr_mmv8c3IiTO1sqhtkyo1_250.gif');
  background-repeat: no-repeat;
  background-size: cover;
 }
 .grid div.carLeftThree {
-  content:url('https://www.pngkey.com/png/full/66-669439_girl-driving-a-green-car-free-clip-art.png');
+  content:url('https://i0.wp.com/24.media.tumblr.com/5c428b0416dea253ae680f7688a41e9b/tumblr_mmv8c3IiTO1sqhtkyo1_250.gif');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .grid div.carRightTwo {
-  content:url('https://lh3.googleusercontent.com/proxy/qYxahv0hJEWjkHe90H4_HhLcCkpR7sBjMc4M_xagBS6zFW_5URb66nAgeSIZlfiDgncSGZSvRBnv-Jh5XrtDJzz_8k-pMiWGzLe1ONHTyKE-gdR6Sog0SoM1ido-OGVpuw929fKOAa2T');
+  content:url('https://media1.giphy.com/media/kfds8RuptI555XkgzL/giphy.gif?cid=6c09b952ev4xnynnnsnah128x0106trmjl9e4zdirmb41spb&rid=giphy.gif&ct=s');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .grid div.log{
- content: url('https://cdn.pixabay.com/photo/2014/12/22/00/07/tree-576846__480.png');
+ content: url('https://media1.giphy.com/media/PdHpcCVeQIbCwMS4I9/giphy.gif?cid=6c09b952f04sztkqj9lyigwqjniqukiuhq6wamm4hpq6ph1c&rid=giphy.gif&ct=s');
   background-repeat: no-repeat;
   background-size: cover
 }
 .grid div.logTwo{
-  content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD2B8xVqnNm0VwJxVTMZIr2QY3tOq_AjpT1bnNRQ3oMW3RvJfQPifrmfS2UPKozvqQegU&usqp=CAU');
+  content: url('https://media1.giphy.com/media/PdHpcCVeQIbCwMS4I9/giphy.gif?cid=6c09b952f04sztkqj9lyigwqjniqukiuhq6wamm4hpq6ph1c&rid=giphy.gif&ct=s');
    background-repeat: no-repeat;
    background-size: cover
  }
  .grid div.logThree{
-  content: url('https://banner2.cleanpng.com/20180827/xsi/kisspng-forest-log-tree-firewood-firewood-forest-log-trapped-png-image-picpng-5b8434d2c438c0.4754663615353909308037.jpg');
+  content: url('https://media1.giphy.com/media/PdHpcCVeQIbCwMS4I9/giphy.gif?cid=6c09b952f04sztkqj9lyigwqjniqukiuhq6wamm4hpq6ph1c&rid=giphy.gif&ct=s');
    background-repeat: no-repeat;
    background-size: cover
  }
  .grid div.logFour{
-  content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD2B8xVqnNm0VwJxVTMZIr2QY3tOq_AjpT1bnNRQ3oMW3RvJfQPifrmfS2UPKozvqQegU&usqp=CAU');
+  content: url('https://media1.giphy.com/media/PdHpcCVeQIbCwMS4I9/giphy.gif?cid=6c09b952f04sztkqj9lyigwqjniqukiuhq6wamm4hpq6ph1c&rid=giphy.gif&ct=s');
    background-repeat: no-repeat;
    background-size: cover
  }
+ .grid div.frogonlog{
+   content: url('https://thumbs.gfycat.com/BreakableAgedCoypu-max-1mb.gif');
+   background-repeat: no-repeat;
+   background-size: cover
+ }
+ .grid div.background {
+   background-image: url();
+ }
+ 
+

@@ -2,7 +2,7 @@ function init() {
  const grid = document.querySelector('.grid')
  const startButton = document.querySelector('#start') 
  const scoreDisplay = document.querySelector('#score-display') 
- const TimeDisplay = document.querySelector('#time-display')
+ const livesDisplay = document.querySelector('#lives-display')
 
  const width = 11
  const cellCount = width * width
@@ -13,8 +13,8 @@ function init() {
  const lilyClass ='lilyPad'
  
  
-//  let TimerID // variable to store the timer id
-//  let remainingTime   // to set how long the game should run for
+ let frogTimer // variable to store the timer id
+ let livesRemaining = 3  // to set how long the game should run for
  let score = 0  // start score at 0
 
  
@@ -30,6 +30,7 @@ function init() {
  const logTwo = 'logTwo'
  const logThree = 'logThree'
  const logFour = 'logFour'
+ let frogOnLogClass = 'frogonlog'
  const leftCarOne = 87
  let leftMovingCar = 87
  const rightCarStart = 88
@@ -74,9 +75,9 @@ function init() {
       moveThirdCarLeft()
       moveThirdCar()
       moveLogRight()
-      moveLogRightTwo()
-      moveLogLeftOne()
-      moveLogTwoRight()
+      // moveLogRightTwo()
+      // moveLogLeftOne()
+      // moveLogTwoRight()
      
 
       
@@ -91,6 +92,23 @@ function init() {
     // console.log('inside frog function')
    cells[position].classList.remove('frog')
   
+  }
+  function startGame(){
+    console.log('click')
+    removeFrog(currentFrogPosition)
+    console.log('removed frog from current position')
+      frogTimer = setInterval(() => { 
+        
+          if (livesRemaining <= 0) {
+            alert('GAME OVER') // check how many lives are left
+          alert(`You scored ${score}`)  // alert the score to the user
+          clearInterval(frogTimer)  // clear the timer to stop it running
+          return  // return here so the function stops running here and doesnt carry on to the code outside of the if block
+          }
+
+
+     },1000)
+     addFrog(startingFrogPosition)
   }
 
   function handleKeyUp(event) {
@@ -124,32 +142,44 @@ function init() {
        scoreDisplay.innerText = score 
       }if(currentFrogPosition === leftMovingCar){
         removeFrog
+        livesRemaining -= 1
+        livesDisplay.innerText = livesRemaining
         currentFrogPosition = startingFrogPosition
       } else if (currentFrogPosition === leftCarTwoMove){
         removeFrog
+        livesRemaining -= 1
+        livesDisplay.innerText =livesRemaining
         currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === rightMovingCar){
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
+         livesRemaining -= 1
+         livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === leftCarThreeMove){
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
+         livesRemaining -= 1
+         livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       }else if(currentFrogPosition === carMovingRight){
          console.log('you got hit')
          console.log ('removed frog',addFrog)
+         livesRemaining -= 1
+         livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
-      } else if(currentFrogPosition == movinglogOne){
-        console.log('you got hit')
-         console.log ('removed frog',removeFrog)
-         currentFrogPosition = startingFrogPosition
-      }
+      } 
+
+      // else if(currentFrogPosition == movinglogOne){
+      //   console.log('you got hit')
+      //    console.log ('removed frog',removeFrog)
+      //    currentFrogPosition = startingFrogPosition
       addFrog(currentFrogPosition)
+      }
       
-  }
       
-      
+    
+     
 
   function addLilyPadOne (placementOne){
     cells[placementOne].classList.add('lilyPad')
@@ -296,12 +326,36 @@ function init() {
   function removeLogOne(one){
     cells[one].classList.remove('log') 
   }
+  function addFrogOnLog (el) {
+    cells[el].classList.add('frogonlog')
+    console.log('adding frog on log')
+  }
+  function removeFrogOnLog(el) {
+    cells[el].classList.remove('frogonlog')
+  }
   // ADDING logs!!
   function moveLogRight() {
      addLogOne(logOne)
       setInterval(function(){ 
         removeLogOne(movinglogOne)
-          
+          if(currentFrogPosition === movinglogOne){
+            console.log('same position')
+            removeLogOne(movinglogOne)
+            
+            addFrogOnLog(movinglogOne)
+            score += 100 
+            scoreDisplay.innerText = score
+            removeFrog(currentFrogPosition)
+            console.log('add frog')
+             removeFrogOnLog(movinglogOne)
+            if(currentFrogPosition === 43) {
+              removeFrogOnLog(currentFrogPosition)
+             currentFrogPosition = logOne
+              removeFrogOnLog(currentFrogPosition)
+            }
+            currentFrogPosition ++
+            addFrogOnLog(currentFrogPosition)
+          }
           if(movinglogOne === 43) {
             removeLogOne(movinglogOne)
             movinglogOne = logOne
@@ -309,10 +363,7 @@ function init() {
           }
           movinglogOne ++
           addLogOne(movinglogOne)
-          if(currentFrogPosition === movinglogOne){
-            removeFrog(currentFrogPosition)
-             addFrog(startingFrogPosition)
-          }
+
         }, 1000);
       }
       // need to add some about the frog floating with the log
@@ -390,9 +441,11 @@ function init() {
              }
            }, 1000);
          }
-      //  const logFoutStart = 50
-      //  let movingLogFour = 50
-    document.addEventListener('keyup', handleKeyUp)
+         startButton.addEventListener('click', startGame) 
+      
+    
+         document.addEventListener('keyup', handleKeyUp)
      createGrid(startingFrogPosition)
+    
 }
   window.addEventListener('DOMContentLoaded', init)
