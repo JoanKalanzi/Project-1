@@ -28,9 +28,9 @@ function init() {
  const carRightTwoClass = 'carLeftTwo'
  const carLeftThirdClass ='carLeftThree'
  const carTwoRightClass = 'carRightTwo'
- const log = 'log'
- const logTwo = 'logTwo'
- const logThree = 'logThree'
+ const logClass = 'log'
+ const logTwoClass = 'logTwo'
+ const logThreeClass = 'logThree'
  const logFour = 'logFour'
  let frogOnLogClass = 'frogonlog'
  const leftCarOne = 87
@@ -76,10 +76,10 @@ function init() {
       moveSecondCarRight()
       moveThirdCarLeft()
       moveThirdCar()
-      moveLogRight()
-      moveLogRightTwo()
+      // moveLogRight()
+      // moveLogRightTwo()
       moveLogLeftOne()
-      moveLogTwoRight()
+      // moveLogTwoRight()
       // addBackgroundOne(cells[120])
      
 
@@ -103,19 +103,18 @@ function init() {
     console.log(' livesssss',livesRemaining)
     console.log('removed frog from current position')
       frogTimer = setInterval(function(){  
-        // console.log(livesRemaining)
+      
           if (livesRemaining <= 0) {
-             // check how many lives are left
+           
             console.log('hello')
             alert('GAME OVER')
             alert(`You scored ${score}`) 
          
            console.log('you scored this')
            clearInterval(frogTimer)
-           console.log('stooped timer') 
-          // clearInterval(score)
-           // clear the timer to stop it running
-          return  // return here so the function stops running here and doesnt carry on to the code outside of the if block
+           clearInterval(score)
+          
+          return 
           }
 
 
@@ -147,52 +146,70 @@ function init() {
        score += 100 
        scoreDisplay.innerText = score 
        removeFrog(currentFrogPosition) 
-       
        removeLilyPadOne(postionLilyOne)
-       
        addPlanet(postionLilyOne)
        
        currentFrogPosition = startingFrogPosition
       }else if(currentFrogPosition === positionLilyTwo){
        score += 100 
        scoreDisplay.innerText = score 
+       removeFrog(currentFrogPosition) 
+       
+       removeLilyPadOne(positionLilyTwo)
+       
+       addPlanet(positionLilyTwo)
+       currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === positionLilyThree){
        score += 100 
        scoreDisplay.innerText = score 
+       removeFrog(currentFrogPosition) 
+       
+       removeLilyPadOne(positionLilyThree)
+       
+       addPlanet(positionLilyThree)
+       currentFrogPosition = startingFrogPosition
       }if(currentFrogPosition === leftMovingCar){
         removeFrog
+        score -= 50
+        scoreDisplay.innerText = score 
         if(livesRemaining > 0){livesRemaining -=1}
         livesDisplay.innerText = livesRemaining
         currentFrogPosition = startingFrogPosition
+        
       } else if (currentFrogPosition === leftCarTwoMove){
         removeFrog
+        score -= 50
+        scoreDisplay.innerText = score 
         if(livesRemaining > 0){livesRemaining -=1}
         livesDisplay.innerText =livesRemaining
         currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === rightMovingCar){
+
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
+         score -= 50
+         scoreDisplay.innerText = score 
          if(livesRemaining > 0){livesRemaining -=1}
          livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === leftCarThreeMove){
          console.log('you got hit')
          console.log ('removed frog',removeFrog)
+         score -= 50
+         scoreDisplay.innerText = score 
          if(livesRemaining > 0){livesRemaining -=1}
          livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       }else if(currentFrogPosition === carMovingRight){
          console.log('you got hit')
          console.log ('removed frog',addFrog)
+         score -= 50
+         scoreDisplay.innerText = score 
          if(livesRemaining > 0){livesRemaining -=1}
          livesDisplay.innerText = livesRemaining
          currentFrogPosition = startingFrogPosition
       } 
 
-      // else if(currentFrogPosition == movinglogOne){
-      //   console.log('you got hit')
-      //    console.log ('removed frog',removeFrog)
-      //    currentFrogPosition = startingFrogPosition
       addFrog(currentFrogPosition)
       }
       
@@ -380,7 +397,7 @@ function init() {
             removeFrog(currentFrogPosition)
             console.log('add frog')
              removeFrogOnLog(movinglogOne)
-             removeFrogOnLog
+            //  removeFrogOnLog
             if(currentFrogPosition === 43) {
               removeFrogOnLog(currentFrogPosition)
              currentFrogPosition = logOne
@@ -422,13 +439,13 @@ function init() {
            removeFrogOnLog
            removeFrogOnLog(movingLogTwo)
 
-           if(currentFrogPosition === 43){
+            if(currentFrogPosition === 43){
             removeFrogOnLog(currentFrogPosition)
             currentFrogPosition = logTwoStart
             removeFrogOnLog(currentFrogPosition)
-          }
-          currentFrogPosition ++
-          addFrogOnLog(currentFrogPosition)
+            }
+             currentFrogPosition ++
+             addFrogOnLog(currentFrogPosition)
          }
          if(movingLogTwo === 43) {
            removeLogTwo(movingLogTwo)
@@ -451,29 +468,28 @@ function init() {
     addLogLeft(logThreeStart)
       setInterval(function(){ 
         removeLogLeft(movingLogThree)
-         if(currentFrogPosition !== movingLogThree){
+          if(currentFrogPosition !== movingLogThree){
            cells.forEach(cell => cell.classList.remove('frogonlog')) 
-         }
-         if(currentFrogPosition === movingLogThree){
-            removeLogLeft(movingLogThree)
-            addFrogOnLog(movingLogThree)
-            score += 100
-            scoreDisplay.innerText = score
-            removeFrog(currentFrogPosition)
-            removeFrogOnLog
-            removeFrogOnLog(movingLogThree)
+          }
+            if(currentFrogPosition === movingLogThree){
+              removeLogLeft(movingLogThree)
+                addFrogOnLog(movingLogThree)
+                 score += 100
+                  scoreDisplay.innerText = score
+                    removeFrog(currentFrogPosition)
+                     removeFrogOnLog
+                      removeFrogOnLog(movingLogThree)
 
-            if(currentFrogPosition === 44){
-              removeFrogOnLog(currentFrogPosition)
-              currentFrogPosition = logThreeStart
-              removeFrogOnLog(currentFrogPosition)
+                      if(currentFrogPosition === 44){
+                        removeFrogOnLog(currentFrogPosition)
+                         currentFrogPosition = logThreeStart
+                          removeFrogOnLog(currentFrogPosition)
+                      }
+                      currentFrogPosition --
+                      addFrogOnLog(currentFrogPosition)
+
             }
-            currentFrogPosition --
-            addFrogOnLog(currentFrogPosition)
-
-         }
-           
-        if(movingLogThree === 44) {
+           if(movingLogThree === 44) {
             removeLogLeft(movingLogThree)
             movingLogThree = logThreeStart
             removeLogLeft(movingLogThree)
@@ -504,9 +520,8 @@ function init() {
             score += 100
             scoreDisplay.innerText = score
             removeFrog(currentFrogPosition)
-            removeFrogOnLog
+            // removeFrogOnLog
             removeFrogOnLog(movingLogFour)
- 
            if(currentFrogPosition === 44){
              removeFrogOnLog(currentFrogPosition)
              currentFrogPosition = logFourStart
@@ -516,7 +531,7 @@ function init() {
            addFrogOnLog(currentFrogPosition)
  
           }
-             if(movingLogFour === 44) {
+          if(movingLogFour === 44) {
                removeLogleftTwo(movingLogFour)
                movingLogFour = logFourStart
                removeLogleftTwo(movingLogFour)
