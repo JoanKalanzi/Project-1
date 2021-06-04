@@ -3,6 +3,7 @@ function init() {
  const startButton = document.querySelector('#start') 
  const scoreDisplay = document.querySelector('#score-display') 
  const livesDisplay = document.querySelector('#lives-display')
+ const audio = document.querySelector('audio')
 
  const width = 11
  const cellCount = width * width
@@ -12,7 +13,7 @@ function init() {
  const frogClass = 'frog'
  const lilyClass ='lilyPad'
  const planetClass = 'frogHome'
-//  const  backgroundClass = 'img'
+ 
  
  
  let frogTimer 
@@ -53,11 +54,6 @@ function init() {
  let movingLogFour = 50
 
 
-  
-
-//  let leftCarTwo = 101
-//  let leftCarThree= 103
-
   function createGrid(startingFrogPosition){
       for (let i = 0; i < cellCount; i++){
       const cell = document.createElement('div')
@@ -76,16 +72,11 @@ function init() {
       moveSecondCarRight()
       moveThirdCarLeft()
       moveThirdCar()
-      // moveLogRight()
-      // moveLogRightTwo()
+      moveLogRight()
+      moveLogRightTwo()
       moveLogLeftOne()
-      // moveLogTwoRight()
-      // addBackgroundOne(cells[120])
-     
-
-      
-      
-      
+      moveLogTwoRight()
+         
   }
   function addFrog(position){
    cells[position].classList.add('frog')
@@ -148,6 +139,10 @@ function init() {
        removeFrog(currentFrogPosition) 
        removeLilyPadOne(postionLilyOne)
        addPlanet(postionLilyOne)
+       alert('You made to Home')
+       if(livesRemaining > 0){livesRemaining -=1}
+       livesDisplay.innerText = livesRemaining
+       
        
        currentFrogPosition = startingFrogPosition
       }else if(currentFrogPosition === positionLilyTwo){
@@ -158,6 +153,9 @@ function init() {
        removeLilyPadOne(positionLilyTwo)
        
        addPlanet(positionLilyTwo)
+       alert('You made to Home')
+       if(livesRemaining > 0){livesRemaining -=1}
+       livesDisplay.innerText = livesRemaining
        currentFrogPosition = startingFrogPosition
       } else if(currentFrogPosition === positionLilyThree){
        score += 100 
@@ -167,6 +165,10 @@ function init() {
        removeLilyPadOne(positionLilyThree)
        
        addPlanet(positionLilyThree)
+       alert('You made to Home')
+       if(livesRemaining > 0){livesRemaining -=1}
+       livesDisplay.innerText = livesRemaining
+       
        currentFrogPosition = startingFrogPosition
       }if(currentFrogPosition === leftMovingCar){
         removeFrog
@@ -540,10 +542,7 @@ function init() {
              addLogLeftTwo(movingLogFour)
          }, 1000);
       }
-      // function addBackgroundOne(safe) {
-      //   cells[safe].classList.add('img')
-
-      // }
+      
       function addPlanet(net) {
         cells[net].classList.add('frogHome')
         console.log(net)
@@ -551,7 +550,10 @@ function init() {
       function removePlanet(net) {
         cells[net].classList.remove('frogHome')
       }
+     
+      
          startButton.addEventListener('click', startGame) 
+         
       
     
          document.addEventListener('keyup', handleKeyUp)
