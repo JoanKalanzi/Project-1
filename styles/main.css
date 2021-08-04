@@ -78,7 +78,7 @@ button {
   content: url('https://banner2.cleanpng.com/20180823/btx/kisspng-drawing-frog-image-gif-coloring-book-hayvanlar-alemi-on-emaze-5b7ea0df924b34.9162225715350253755992.jpg');
   cursor: pointer;
 }
-.grid div.lilyPad {
+.grid div.home{
   background-image: url('https://media0.giphy.com/media/hqaeBXQjXTMgAkekhm/giphy.gif?cid=6c09b95265y2kz7nkmbpluxm1r3kbsuuhz2bctdoc64j8n1o&rid=giphy.gif&ct=s');
   background-repeat: no-repeat;
   background-size: cover; 
@@ -105,7 +105,7 @@ background-size: cover;
   background-size: cover;
 }
 .grid div.carRightTwo {
-  content:url('https://media1.giphy.com/media/kfds8RuptI555XkgzL/giphy.gif?cid=6c09b952ev4xnynnnsnah128x0106trmjl9e4zdirmb41spb&rid=giphy.gif&ct=s');
+  content:url('https://i.imgur.com/i3QHxLx.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
