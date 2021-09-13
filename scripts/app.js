@@ -29,11 +29,11 @@ function init() {
   const carRightTwoClass = 'carLeftTwo'
   const carLeftThirdClass = 'carLeftThree'
   const carTwoRightClass = 'carRightTwo'
-  const logClass = 'log'
-  const logTwoClass = 'logTwo'
-  const logThreeClass = 'logThree'
-  const logFour = 'logFour'
-  let frogOnLogClass = 'frogonlog'
+  const logClass = 'spaceShipOne'
+  const logTwoClass = 'spaceshipTwo'
+  const logThreeClass = 'spaceshipThree'
+  const spaceshipFourClass = 'spaceshipFour'
+  let frogOnLogClass = 'frogInSpace'
   const battleShips = 87
   let movingAlien = 87
   const rightCarStart = 88
@@ -44,8 +44,8 @@ function init() {
   let leftCarThreeMove = 83
   const rightCarTwoStart = 90
   let carMovingRight = 90
-  const logOne = 33
-  let movinglogOne = 33
+  const spaceShipOne = 33
+  let movingSpaceShipOne = 33
   const logTwoStart = 36
   let movingLogTwo = 36
   const logThreeStart = 54
@@ -367,73 +367,73 @@ function init() {
       }
     }, 2000);
   }
-  function addLogOne(one) {
-    cells[one].classList.add('log')
+  function addSpaceShipOne(one) {
+    cells[one].classList.add('spaceshipOne')
   }
-  function removeLogOne(one) {
-    cells[one].classList.remove('log')
+  function removeSpaceShipone(one) {
+    cells[one].classList.remove('spaceshipOne')
   }
   function addFrogOnLog(el) {
-    cells[el].classList.add('frogonlog')
-    console.log('adding frog on log')
+    cells[el].classList.add('frogInSpace')
+    console.log('adding frog on spaceship')
   }
   function removeFrogOnLog(el) {
-    cells[el].classList.remove('frogonlog')
+    cells[el].classList.remove('frogInSpace')
   }
   // ADDING logs!!
   function moveSpaceship() {
-    addLogOne(logOne)
+    addSpaceShipOne(spaceShipOne)
     setInterval(function () {
-      removeLogOne(movinglogOne)
-      if (currentFrogPosition !== movinglogOne) {
-        cells.forEach(cell => cell.classList.remove('frogonlog'))
+      removeSpaceShipone(movingSpaceShipOne)
+      if (currentFrogPosition !== movingSpaceShipOne) {
+        cells.forEach(cell => cell.classList.remove('frogInSpace'))
       }
-      if (currentFrogPosition === movinglogOne) {
+      if (currentFrogPosition === movingSpaceShipOne) {
         console.log('same position')
-        removeLogOne(movinglogOne)
+        removeSpaceShipone(movingSpaceShipOne)
 
-        addFrogOnLog(movinglogOne)
+        addFrogInSpaceship(movingSpaceShipOne)
         score += 100
         scoreDisplay.innerText = score
         removeFrog(currentFrogPosition)
         console.log('add frog')
-        removeFrogOnLog(movinglogOne)
-        //  removeFrogOnLog
+        removeFrogOnLog(movingSpaceShipOne)
+       
         if (currentFrogPosition === 43) {
           removeFrogOnLog(currentFrogPosition)
-          currentFrogPosition = logOne
+          currentFrogPosition = spaceShipOne
           removeFrogOnLog(currentFrogPosition)
         }
         currentFrogPosition++
-        addFrogOnLog(currentFrogPosition)
+        addFrogInSpaceship(currentFrogPosition)
       }
-      if (movinglogOne === 43) {
-        removeLogOne(movinglogOne)
-        movinglogOne = logOne
-        removeLogOne(movinglogOne)
+      if (movingSpaceShipOne === 43) {
+        removeSpaceShipone(movingSpaceShipOne)
+        movingSpaceShipOne = spaceShipOne
+        removeSpaceShipone(movingSpaceShipOne)
       }
-      movinglogOne++
-      addLogOne(movinglogOne)
+      movingSpaceShipOne++
+      addSpaceShipOne(movingSpaceShipOne)
 
     }, 1000);
   }
   // need to add some about the frog floating with the log
   function addLogTwo(two) {
-    cells[two].classList.add('logTwo')
+    cells[two].classList.add('spaceshipTwo')
   }
   function removeLogTwo(two) {
-    cells[two].classList.remove('logTwo')
+    cells[two].classList.remove('spaceshipTwo')
   }
   function moveSapceshipOneRight() {
     addLogTwo(logTwoStart)
     setInterval(function () {
       removeLogTwo(movingLogTwo)
       if (currentFrogPosition !== movingLogTwo) {
-        cells.forEach(cell => cell.classList.remove('frogonlog'))
+        cells.forEach(cell => cell.classList.remove('frogInSpace'))
       }
       if (currentFrogPosition === movingLogTwo) {
         removeLogTwo(movingLogTwo)
-        addFrogOnLog(movingLogTwo)
+        addFrogInSpaceship(movingLogTwo)
         score += 100
         scoreDisplay.innerText = score
         removeFrog(currentFrogPosition)
@@ -446,7 +446,7 @@ function init() {
           removeFrogOnLog(currentFrogPosition)
         }
         currentFrogPosition++
-        addFrogOnLog(currentFrogPosition)
+        addFrogInSpaceship(currentFrogPosition)
       }
       if (movingLogTwo === 43) {
         removeLogTwo(movingLogTwo)
@@ -460,21 +460,21 @@ function init() {
   }
   //  new log on the line starting  54
   function addLogLeft(three) {
-    cells[three].classList.add('logThree')
+    cells[three].classList.add('spaceshipThree')
   }
   function removeLogLeft(three) {
-    cells[three].classList.remove('logThree')
+    cells[three].classList.remove('spaceshipThree')
   }
   function moveSpaceshipTwoLeft() {
     addLogLeft(logThreeStart)
     setInterval(function () {
       removeLogLeft(movingLogThree)
       if (currentFrogPosition !== movingLogThree) {
-        cells.forEach(cell => cell.classList.remove('frogonlog'))
+        cells.forEach(cell => cell.classList.remove('frogInSpace'))
       }
       if (currentFrogPosition === movingLogThree) {
         removeLogLeft(movingLogThree)
-        addFrogOnLog(movingLogThree)
+        addFrogInSpaceship(movingLogThree)
         score += 100
         scoreDisplay.innerText = score
         removeFrog(currentFrogPosition)
@@ -487,7 +487,7 @@ function init() {
           removeFrogOnLog(currentFrogPosition)
         }
         currentFrogPosition--
-        addFrogOnLog(currentFrogPosition)
+        addFrogInSpaceship(currentFrogPosition)
 
       }
       if (movingLogThree === 44) {
@@ -503,17 +503,17 @@ function init() {
   }
   //  adding the last log moving Right
   function addLogLeftTwo(four) {
-    cells[four].classList.add('logFour')
+    cells[four].classList.add('spaceshipFour')
   }
   function removeLogleftTwo(four) {
-    cells[four].classList.remove('logFour')
+    cells[four].classList.remove('spaceshipFour')
   }
   function moveSpaceShipThreeRight() {
     addLogLeftTwo(logFourStart)
     setInterval(function () {
       removeLogleftTwo(movingLogFour)
       if (currentFrogPosition !== movingLogFour) {
-        cells.forEach(cell => cell.classList.remove('frogonlog'))
+        cells.forEach(cell => cell.classList.remove('frogInSpace'))
       }
       if (currentFrogPosition === movingLogFour) {
         removeLogleftTwo(movingLogFour)

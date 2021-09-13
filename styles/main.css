@@ -109,12 +109,12 @@ background-size: cover;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.grid div.log{
+.grid div.spaceShipOne{
  content: url('https://media1.giphy.com/media/PdHpcCVeQIbCwMS4I9/giphy.gif?cid=6c09b952f04sztkqj9lyigwqjniqukiuhq6wamm4hpq6ph1c&rid=giphy.gif&ct=s');
   background-repeat: no-repeat;
   background-size: cover
 }
-.grid div.logTwo{
+.grid div.spaceshipTwo{
   content: url('https://media1.giphy.com/media/PdHpcCVeQIbCwMS4I9/giphy.gif?cid=6c09b952f04sztkqj9lyigwqjniqukiuhq6wamm4hpq6ph1c&rid=giphy.gif&ct=s');
    background-repeat: no-repeat;
    background-size: cover
@@ -129,7 +129,7 @@ background-size: cover;
    background-repeat: no-repeat;
    background-size: cover
  }
- .grid div.frogonlog{
+ .grid div.frogInSpace{
    content: url('https://thumbs.gfycat.com/BreakableAgedCoypu-max-1mb.gif');
    background-repeat: no-repeat;
    background-size: cover
