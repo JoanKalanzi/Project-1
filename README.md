@@ -6,6 +6,7 @@ Solo project.
 
 
 Timeframe: 1 week.</p>
+![function for frogger to move on the grid](https://github.com/JoanKalanzi/Project-1/blob/main/asserts/frogger.img.png?raw=true)
 
 <h1>Deployment</h1>
 
