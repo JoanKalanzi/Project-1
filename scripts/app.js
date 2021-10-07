@@ -95,7 +95,6 @@ function init() {
     frogTimer = setInterval(function () {
 
       if (livesRemaining <= 0) {
-
         console.log('hello')
         alert('GAME OVER')
         alert(`You scored ${score}`)
@@ -106,8 +105,6 @@ function init() {
 
         return
       }
-
-
     }, 1000)
     addFrog(startingFrogPosition)
   }
@@ -550,13 +547,12 @@ function init() {
     cells[net].classList.remove('frogHome')
   }
 
-
+  createGrid(startingFrogPosition)
   startButton.addEventListener('click', startGame)
 
-
-
   document.addEventListener('keyup', handleKeyUp)
-  createGrid(startingFrogPosition)
+
+  
 
 }
 window.addEventListener('DOMContentLoaded', init)
